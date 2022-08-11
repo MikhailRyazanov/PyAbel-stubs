@@ -1,7 +1,6 @@
 from typing import Literal, Union
 from numpy import ndarray
 
-# same as .tools.center.Axes
 Axis = Union[None, Literal[0, 1], tuple[Literal[0], Literal[1]]]
 
 Method = Literal['average', 'fourier']

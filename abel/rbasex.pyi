@@ -3,14 +3,13 @@ from numpy import ndarray
 from .transform import Direction
 from .tools.vmi import Distributions
 
-#!! from .tools.vmi import Rmax as DistrRmax, Method as DistrMethod
+Origin = Union[Distributions.Origin, tuple[int, int]]
 
-Rmax = int | Literal['hor', 'ver', 'HOR', 'VER',
-                     'min', 'max', 'MIN', 'MAX', 'all']
+Rmax = Distributions.Rmax | int
 
-Origin = Union[tuple[int, int], str] #!! Union[Literal['???'], ???]
-
-Reg = Union[None, tuple[Literal['L2', 'diff', 'SVD'], float], Literal['pos']]
+Reg = Union[None,
+            tuple[Literal['L2', 'diff', 'SVD'], float],
+            Literal['pos']]
 
 Out = Literal['same', 'fold', 'unfold', 'full', 'full-unique', None]
 

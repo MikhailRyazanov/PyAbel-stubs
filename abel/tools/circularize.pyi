@@ -1,14 +1,14 @@
 from typing import Callable, Literal
 from numpy import ndarray
 from abel import __deprecated
-from abel.tools.center import Method as Origin
+import abel.tools.center as Center
 
 Method = Literal['argmax', 'lsq']
 
 def circularize_image(
     IM: ndarray,
     method: Method = ...,
-    origin: None | tuple[float, float] | Origin = ...,
+    origin: None | tuple[float, float] | Center.Method = ...,
     radial_range: None | tuple[int, int] = ...,
     dr: float = ...,
     dt: float = ...,

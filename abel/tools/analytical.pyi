@@ -83,14 +83,13 @@ class TransformPair(BaseAnalytical):
         n: int,
         profile: Literal[1, 2, 3, 4, 5, 6, 7] = ...): ...
 
-Sample = Literal['Dribinski', 'Gaussian', 'Gerber', 'O2', 'Ominus']
-
 class SampleImage(BaseAnalytical):
-    name: Sample = ...
+    Name = Literal['Dribinski', 'Gaussian', 'Gerber', 'O2', 'Ominus']
+    name: Name = ...
     def __init__(
         self,
         n: int = ...,
-        name: Sample = ...,
+        name: Name = ...,
         sigma: None | float = ...,
         temperature: float = ...): ...
     def transform(

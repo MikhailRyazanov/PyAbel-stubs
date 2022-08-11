@@ -77,40 +77,37 @@ def toPES(
     zoom: float = ...
 ) -> tuple[ndarray, ndarray]: ...
 
-DistrOrigin = Literal[
-    'tl', 'tc', 'tr',    'top left',    'top center',    'top right',
-    'ul', 'uc', 'ur',  'upper left',  'upper center',  'upper right',
-    'cl', 'cc', 'cr', 'center left', 'center center', 'center right',
-    'bl', 'bc', 'br', 'bottom left', 'bottom center', 'bottom right',
-    'll', 'lc', 'lr',  'lower left',  'lower center',  'lower right',
-    'c', 'center'
-]
-
-DistrRmax = Literal['hor', 'ver', 'HOR', 'VER',
-                    'min', 'max', 'MIN', 'MAX', 'all']
-
-DistrMethod = Literal['nearest', 'linear', 'remap']
-
 class Distributions:
-    origin: DistrOrigin | tuple[int, int] = ...
-    rmax_in: DistrRmax | int = ...
+    Origin = Literal[
+        'tl', 'tc', 'tr',    'top left',    'top center',    'top right',
+        'ul', 'uc', 'ur',  'upper left',  'upper center',  'upper right',
+        'cl', 'cc', 'cr', 'center left', 'center center', 'center right',
+        'bl', 'bc', 'br', 'bottom left', 'bottom center', 'bottom right',
+        'll', 'lc', 'lr',  'lower left',  'lower center',  'lower right',
+        'c', 'center'
+    ]
+    Rmax = Literal['hor', 'ver', 'HOR', 'VER',
+                   'min', 'max', 'MIN', 'MAX', 'all']
+    Method = Literal['nearest', 'linear', 'remap']
+    origin: Origin | tuple[int, int] = ...
+    rmax_in: Rmax | int = ...
     order: int = ...
     odd: bool = ...
     N: int = ...
     use_sin: bool = ...
     weights: None | ndarray = ...
     shape: None | tuple[int, int] = ...
-    method: DistrMethod = ...
+    method: Method = ...
     ready: bool = ...
     def __init__(
         self,
-        origin: DistrOrigin | tuple[int, int] = ...,
-        rmax: DistrRmax | int = ...,
+        origin: Origin | tuple[int, int] = ...,
+        rmax: Rmax | int = ...,
         order: int = ...,
         odd: bool = ...,
         use_sin: bool = ...,
         weights: None | ndarray = ...,
-        method: DistrMethod = ...): ...
+        method: Method = ...): ...
     def _int_nearest(
         self,
         a: None | ndarray,
@@ -183,24 +180,24 @@ class Distributions:
 
 def harmonics(
     IM: ndarray,
-    origin: DistrOrigin | tuple[int, int] = ...,
-    rmax: DistrRmax | int = ...,
+    origin: Distributions.Origin | tuple[int, int] = ...,
+    rmax: Distributions.Rmax | int = ...,
     order: int = ...,
     **kwargs: Any  #?? passed to Distributions()
 ) -> ndarray: ...
 
 def rharmonics(
     IM: ndarray,
-    origin: DistrOrigin | tuple[int, int] = ...,
-    rmax: DistrRmax | int = ...,
+    origin: Distributions.Origin | tuple[int, int] = ...,
+    rmax: Distributions.Rmax | int = ...,
     order: int = ...,
     **kwargs: Any  #?? passed to Distributions()
 ) -> ndarray: ...
 
 def Ibeta(
     IM: ndarray,
-    origin: DistrOrigin | tuple[int, int] = ...,
-    rmax: DistrRmax | int = ...,
+    origin: Distributions.Origin | tuple[int, int] = ...,
+    rmax: Distributions.Rmax | int = ...,
     order: int = ...,
     window: int = ...,
     **kwargs: Any  #?? passed to Distributions()
@@ -208,8 +205,8 @@ def Ibeta(
 
 def rIbeta(
     IM: ndarray,
-    origin: DistrOrigin | tuple[int, int] = ...,
-    rmax: DistrRmax | int = ...,
+    origin: Distributions.Origin | tuple[int, int] = ...,
+    rmax: Distributions.Rmax | int = ...,
     order: int = ...,
     window: int = ...,
     **kwargs: Any  #?? passed to Distributions()

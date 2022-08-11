@@ -1,11 +1,13 @@
 from typing import Any, Callable, Literal, Union
 from numpy import ndarray
 from abel import __deprecated
+from .symmetry import Axis as Axes
 
+# for find_origin
 Method = Literal['image_center', 'com', 'convolution', 'gaussian', 'slice']
 
-# same as .tools.symmetry.Axis
-Axes = Union[None, Literal[0, 1], tuple[Literal[0], Literal[1]]]
+# for set_center
+Origin = tuple[float | None, float | None]
 
 Crop = Literal['maintain_size', 'valid_region', 'maintain_data']
 
@@ -21,7 +23,7 @@ def find_origin(
 
 def center_image(
     IM: ndarray,
-    method: Method | tuple[float | None, float | None] = ...,
+    method: Method | Origin = ...,
     odd_size: bool = ...,
     square: bool = ...,
     axes: Axes = ...,
@@ -34,7 +36,7 @@ def center_image(
 
 def set_center(
     data: ndarray,
-    origin: tuple[float | None, float | None],
+    origin: Origin,
     crop: Crop = ...,
     axes: Axes = ...,
     order: Order = ...,

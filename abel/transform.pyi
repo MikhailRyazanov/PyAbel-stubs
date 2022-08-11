@@ -1,7 +1,8 @@
 from typing import Any, Callable, Literal, Sequence, Union
 from numpy import ndarray
 from abel import __deprecated
-from .tools.symmetry import Axis, Method as SymmMethod
+from .tools import center as Center
+from .tools import symmetry as Symmetry
 from .tools.vmi import Distributions
 
 Direction = Literal['forward', 'inverse']
@@ -19,10 +20,7 @@ Method = Literal[
     'three_point'
 ]
 
-#!! from .tools.center import Method as Origin
-Origin = Union[tuple[float, float],
-               Literal['image_center', 'convolution', 'slice', 'com',
-                       'gaussian', 'none']]
+Origin = Union[Literal['none'], Center.Method, tuple[float, float]]
 
 class Transform:
     _verbose: bool = ...
@@ -34,8 +32,8 @@ class Transform:
     projection: ndarray = ...
     distr: Distributions.Results = ...
     _origin: Origin = ...
-    _symmetry_axis: Axis = ...
-    _symmetrize_method: SymmMethod = ...
+    _symmetry_axis: Symmetry.Axis = ...
+    _symmetrize_method: Symmetry.Method = ...
     _use_quadrants: tuple[bool, bool, bool, bool] = ...
     _transform_options: dict[str, Any] = ...
     _recast_as_float64: bool = ...
@@ -45,9 +43,9 @@ class Transform:
         direction: Direction = ...,
         method: Method = ...,
         origin: Origin = ...,
-        symmetry_axis: Axis = ...,
+        symmetry_axis: Symmetry.Axis = ...,
         use_quadrants: tuple[bool, bool, bool, bool] = ...,
-        symmetrize_method: SymmMethod = ...,
+        symmetrize_method: Symmetry.Method = ...,
         angular_integration: bool = ...,
         transform_options: dict[str, Any] = ...,
         center_options: dict[str, Any] = ...,

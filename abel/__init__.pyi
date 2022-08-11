@@ -1,8 +1,7 @@
 from ._version import __version__
 
 # import types for functions and classes imported into abel namespace
-from .transform import Direction, Method
-#!! from .tools.center import Method as Origin
+from .transform import Direction as Direction, Method as Method
 
 class __deprecated:
     def __repr__(self) -> str: ...
