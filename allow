@@ -31,8 +31,9 @@ abel.transform.Direction
 abel.transform.Method
 abel.transform.Origin
 
-# imports (not exposed)
-abel.basex.gammaln
-abel.lib.direct.__test__
-abel.linbasex.eval_legendre
-abel.tools.center.string_types
+# internal TypeVar types
+abel.benchmark.T
+abel.tools.polar.T
+abel.tools.polynomial.Angular.R
+abel.tools.polynomial.Angular.T
+abel.tools.polynomial.BasePolynomial.T

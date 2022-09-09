@@ -2,15 +2,15 @@ Stub files for PyAbel
 =====================
 
 [Stub files](https://mypy.readthedocs.io/en/stable/stubs.html) with type hints
-for the [PyAbel](https://github.com/PyAbel/PyAbel/) package. The plan is to
-integrate them into the PyAbel repository eventually, but for now they are
-provided here as is.
+for the [PyAbel](https://github.com/PyAbel/PyAbel/) package (master branch).
+The plan is to integrate them into the PyAbel repository eventually, but for
+now they are provided here as is.
 
 The Python typing system itself and
 [mypy](https://mypy.readthedocs.io/en/stable/index.html) are still more
 experimental than mature and don't have enough expressive power to annotate
 everything properly, but nevertheless might be helpful, and I've tried to do as
-much as feasible within current limitations (Python 3.10, mypy 0.961). Please
+much as feasible within current limitations (Python 3.10, mypy 0.971). Please
 feel free to report any found issues or suggestions.
 
 Usage

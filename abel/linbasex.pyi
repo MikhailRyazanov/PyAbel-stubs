@@ -1,5 +1,6 @@
 from typing import Any, Literal
 from numpy import ndarray
+from abel import __deprecated
 
 _basis: None | ndarray
 _los: None | str
@@ -35,7 +36,7 @@ def linbasex_transform_full(
     rcond: float = ...,
     threshold: float = ...,
     clip: int = ...,
-    return_Beta: bool = ...,
+    return_Beta: __deprecated = ...,  # really deprecated, so no other types
     norm_range: tuple[int, int] = ...,
     direction: Literal['inverse'] = ...,
     verbose: bool = ...
@@ -61,16 +62,8 @@ def _beta_solve(
     rcond: float = ...
 ) -> ndarray: ...
 
-def _SL(
-    i: int,
-    x: float,
-    y: float,
-    Beta_convol: ndarray,
-    index: float,
-    legendre_orders: list[int]
-) -> ndarray: ...
-
 def _Slices(
+    radial: ndarray,
     Beta: ndarray,
     legendre_orders: list[int],
     smoothing: float = ...
@@ -78,9 +71,15 @@ def _Slices(
 
 def int_beta(
     Beta: ndarray,
-    radial_step: int = ..., #?? unused
+    radial_step: int = ...,
     threshold: float = ...,
     regions: None | list[tuple[int, int]] = ...
+) -> __deprecated: ...
+
+def mean_beta(
+    radial: ndarray,
+    Beta: ndarray,
+    regions: list[tuple[int, int]]
 ) -> ndarray: ...
 
 def _single_Beta_norm(
@@ -90,7 +89,7 @@ def _single_Beta_norm(
 ) -> ndarray: ...
 
 def _bas(
-    ord: int,
+    order: int,
     angle: float,
     COS: ndarray,
     TRI: ndarray
