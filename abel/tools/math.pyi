@@ -1,4 +1,5 @@
 from numpy import ndarray
+from abel import __deprecated
 
 def gradient(
     f: ndarray,
@@ -15,7 +16,9 @@ def gaussian(
     c: float
 ) -> ndarray: ...
 
-#?? rename to "guess_gaussian" (+ make deprecated shim)
-def guss_gaussian(x: ndarray) -> tuple[float, float, float, float]: ...
+def guess_gaussian(x: ndarray) -> tuple[float, float, float, float]: ...
 
 def fit_gaussian(x: ndarray) -> tuple[float, float, float, float]: ...
+
+# really deprecate old function
+def guss_gaussian(x: ndarray) -> __deprecated: ...
