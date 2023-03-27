@@ -73,8 +73,6 @@ class Transform:
         self,
         **transform_options: dict[str, Any]
     ) -> None: ...
-    linbasex_angular_integration: ndarray = ...  #!! not doc'd
-    linbasex_anisotropy_parameter: ndarray = ...  #!! "Beta"?
     transform: ndarray = ...
     def _abel_transform_image_by_quadrant(
         self,

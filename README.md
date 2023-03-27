@@ -10,7 +10,7 @@ The Python typing system itself and
 [mypy](https://mypy.readthedocs.io/en/stable/index.html) are still more
 experimental than mature and don't have enough expressive power to annotate
 everything properly, but nevertheless might be helpful, and I've tried to do as
-much as feasible within current limitations (Python 3.10, mypy 0.971). Please
+much as feasible within current limitations (Python 3.11, mypy 1.0.1). Please
 feel free to report any found issues or suggestions.
 
 Usage
