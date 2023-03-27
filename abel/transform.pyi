@@ -1,4 +1,4 @@
-from typing import Any, Callable, Literal, Sequence, Union
+from typing import Any, Callable, Literal, Sequence
 from numpy import ndarray
 from abel import __deprecated
 from .tools import center as Center
@@ -20,7 +20,7 @@ Method = Literal[
     'three_point'
 ]
 
-Origin = Union[Literal['none'], Center.Method, tuple[float, float]]
+Origin = Literal['none'] | Center.Method | tuple[float, float]
 
 class Transform:
     _verbose: bool = ...

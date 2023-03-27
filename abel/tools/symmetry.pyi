@@ -1,7 +1,7 @@
-from typing import Literal, Union
+from typing import Literal
 from numpy import ndarray
 
-Axis = Union[None, Literal[0, 1], tuple[Literal[0], Literal[1]]]
+Axis = None | Literal[0, 1] | tuple[Literal[0], Literal[1]]
 
 Method = Literal['average', 'fourier']
 

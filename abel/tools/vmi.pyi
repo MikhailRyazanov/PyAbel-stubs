@@ -1,4 +1,4 @@
-from typing import Any, Literal, Optional, Union
+from typing import Any, Literal, Optional
 from numpy import ndarray
 from abel import __deprecated
 

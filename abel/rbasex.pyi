@@ -1,15 +1,13 @@
-from typing import Literal, Union
+from typing import Literal
 from numpy import ndarray
 from .transform import Direction
 from .tools.vmi import Distributions
 
-Origin = Union[Distributions.Origin, tuple[int, int]]
+Origin = Distributions.Origin | tuple[int, int]
 
 Rmax = Distributions.Rmax | int
 
-Reg = Union[None,
-            tuple[Literal['L2', 'diff', 'SVD'], float],
-            Literal['pos']]
+Reg = None | tuple[Literal['L2', 'diff', 'SVD'], float] |Literal['pos']
 
 Out = Literal['same', 'fold', 'unfold', 'full', 'full-unique', None]
 

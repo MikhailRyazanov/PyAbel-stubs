@@ -58,7 +58,7 @@ def find_origin_by_convolution(
     projections: bool = ...,
     **kwargs: Any
 ) -> Union[  #!! depends on "projections", but see mypy issue 5621
-    tuple[float, float],
+    tuple[float, float] |
     tuple[tuple[float, float], ndarray | None, ndarray | None]
 ]: ...
 
